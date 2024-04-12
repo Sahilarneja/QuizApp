@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <Menu stackable inverted>
       <Menu.Item header>
-        <h1>Quiz-Application</h1>
+        <h1>Quiz-App</h1>
       </Menu.Item>
       {promptEvent && !isAppInstalled && (
         <Menu.Item position="right">
