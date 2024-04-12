@@ -1,20 +1,20 @@
+# Use the official Node.js image as the base image
 FROM node:latest
 
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json separately to leverage Docker caching
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install npm dependencies
+RUN npm install -g npm@latest
+RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of the application files to the working directory
 COPY . .
 
-# Build your application (if necessary)
-RUN npm run build
-
-# Expose the port your app runs on
+# Expose the port your app runs on (if applicable)
 EXPOSE 3000
 
 # Command to run the application
